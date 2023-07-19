@@ -1,0 +1,24 @@
+{% extends 'link/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Статьи</h1>
+
+<h3 class="text-center mb-5">{{ companys.count }} post{{ companys.count|pluralize }} on this page</h3>
+
+{% for company in companys %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'company:detail_company' company.id %}">
+        <h2>{{ company.title }}</h2>
+    </a>
+    <h5 class="text-muted">{{ company.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ company.description|striptags|truncatechars:100 }}</h4>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

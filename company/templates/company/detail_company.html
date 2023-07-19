@@ -1,0 +1,13 @@
+{% extends 'link/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-center mt-5" id="blogdetailtitle">{{ company.title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ company.date|date:'F jS Y' }}</h5>
+
+{{ company.description|safe }}
+
+{% endblock %}
